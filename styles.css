@@ -1,0 +1,221 @@
+/* --- VARIABLES DE DISEÑO --- */
+:root {
+    --amarillo: #F2B705;
+    --verde: #8C9E5E;
+    --verde-degradado: linear-gradient(90deg, #5a7135, #b7c95a);
+    --cafe: #8C4830;
+    --blanco: #ffffff;
+    --negro: #1a1a1a;
+    --gris-fondo: #f0f2ed;
+    --sombra: rgba(0, 0, 0, 0.1);
+    --transicion: 0.3s ease;
+}
+
+/* --- ESTILOS GENERALES --- */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    background-color: var(--gris-fondo);
+    color: var(--negro);
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    margin: 5px 0;
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.page {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 60px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- CABECERA --- */
+.main-header {
+    text-align: center;
+    margin-bottom: 50px;
+    max-width: 800px;
+}
+
+.brand-tagline {
+    letter-spacing: 3px;
+    font-weight: 300;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.accent-line {
+    width: 60px;
+    height: 4px;
+    background: var(--amarillo);
+    margin: 15px auto;
+}
+
+.header-description {
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* --- GRID DE TOURS --- */
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* --- TARJETAS --- */
+.tour-card {
+    background: var(--blanco);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px var(--sombra);
+    transition: transform var(--transicion);
+    display: flex;
+    flex-direction: column;
+}
+
+.tour-card:hover {
+    transform: translateY(-10px);
+}
+
+.card-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.category-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: var(--amarillo);
+    color: var(--negro);
+    padding: 5px 15px;
+    font-weight: bold;
+    font-size: 0.75rem;
+    border-radius: 50px;
+}
+
+.tour-content {
+    padding: 25px;
+    flex-grow: 1;
+}
+
+.tour-content h3 {
+    color: var(--cafe);
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.tour-content p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #444;
+}
+
+/* --- HIGHLIGHTS (#TAGS) --- */
+.highlights {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.highlights ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.highlights li {
+    background: #f1f4f1;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    color: var(--verde);
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+/* --- FOOTER DE TARJETA --- */
+.footer-card {
+    padding: 15px 25px;
+    background: #fafafa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f0f0f0;
+}
+
+.operation-label {
+    font-weight: bold;
+    color: var(--cafe);
+    font-size: 0.9rem;
+}
+
+.btn-tour {
+    background: var(--cafe);
+    color: var(--blanco);
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    transition: background var(--transicion);
+}
+
+.btn-tour:hover {
+    background: var(--negro);
+}
+
+/* --- FOOTER GENERAL --- */
+.alliance-footer {
+    margin-top: 80px;
+    background: var(--verde-degradado);
+    color: var(--blanco);
+    padding: 60px 20px;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.alliance-footer h2 {
+    color: var(--amarillo);
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    font-size: 1.1rem;
+    margin-top: 30px;
+}
+
+.footer-bottom {
+    margin-top: 40px;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* --- RESPONSIVIDAD --- */
+@media (max-width: 768px) {
+    .catalog-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .main-header h1 {
+        font-size: 1.8rem;
+    }
+}
