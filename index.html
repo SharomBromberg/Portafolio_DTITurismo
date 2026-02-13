@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DTI: Catálogo de Experiencias y Territorios</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway:wght@300;400;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
     <main class="page">
@@ -15,20 +19,22 @@
             <h1>Catálogo de Experiencias</h1>
             <div class="accent-line"></div>
             <p class="header-description">
-                Ofrece a tus clientes viajes con identidad, diseñados por consultores expertos 
-                y operados con responsabilidad sostenible[cite: 3, 4, 11].
+                Ofrece a tus clientes viajes con identidad, diseñados por consultores expertos
+                y operados con responsabilidad sostenible.
             </p>
         </header>
 
         <div class="catalog-grid">
-            
+
             <article class="tour-card" data-key="cafe">
-                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1518173946687-a4c8a9833d8e?auto=format&fit=crop&w=800&q=80');">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1518173946687-a4c8a9833d8e?auto=format&fit=crop&w=800&q=80');">
                     <span class="category-badge">Identidad Territorial</span>
                 </div>
                 <div class="tour-content">
                     <h3>Ruta del Café: Origen y Tradición</h3>
-                    <p>Inmersión profunda en fincas cafeteras de autor[cite: 19]. Taller de barismo con caficultores locales y senderismo por cafetales sombreados[cite: 19].</p>
+                    <p>Inmersión profunda en fincas cafeteras de autor. Taller de barismo con caficultores
+                        locales y senderismo por cafetales sombreados.</p>
                     <div class="highlights">
                         <ul>
                             <li>#Sostenibilidad</li>
@@ -44,12 +50,14 @@
             </article>
 
             <article class="tour-card" data-key="palmas">
-                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1542332213-31f87348057f?auto=format&fit=crop&w=800&q=80');">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1542332213-31f87348057f?auto=format&fit=crop&w=800&q=80');">
                     <span class="category-badge">Aventura & Naturaleza</span>
                 </div>
                 <div class="tour-content">
                     <h3>Expedición Palmas de Cera</h3>
-                    <p>Recorrido por el Valle de Cocora con enfoque científico[cite: 19]. Fotografía de fauna y flora andina guiada por expertos en biodiversidad[cite: 32].</p>
+                    <p>Recorrido por el Valle de Cocora con enfoque científico. Fotografía de fauna y flora
+                        andina guiada por expertos en biodiversidad.</p>
                     <div class="highlights">
                         <ul>
                             <li>#Naturaleza</li>
@@ -65,12 +73,14 @@
             </article>
 
             <article class="tour-card" data-key="mice">
-                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?auto=format&fit=crop&w=800&q=80');">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?auto=format&fit=crop&w=800&q=80');">
                     <span class="category-badge">MICE & Corporativo</span>
                 </div>
                 <div class="tour-content">
                     <h3>Incentivo Sostenible: Eje Cafetero</h3>
-                    <p>Eventos empresariales con impacto social neutro[cite: 16]. Talleres de liderazgo en entornos naturales y logística técnica de alta gama[cite: 18].</p>
+                    <p>Eventos empresariales con impacto social neutro. Talleres de liderazgo en entornos
+                        naturales y logística técnica de alta gama.</p>
                     <div class="highlights">
                         <ul>
                             <li>#Empresarial</li>
@@ -89,7 +99,8 @@
 
         <footer class="alliance-footer">
             <h2>Aliados Estratégicos B2B</h2>
-            <p>Garantizamos calidad operativa, cumplimiento normativo y una estructura de comisiones atractiva para tu agencia[cite: 28, 29].</p>
+            <p>Garantizamos calidad operativa, cumplimiento normativo y una estructura de comisiones atractiva para tu
+                agencia.</p>
             <div class="contact-info">
                 <p>📞 3126914482 | ✉️ info.dticonsultores@gmail.com</p>
             </div>
@@ -101,23 +112,24 @@
 
     <!-- Overlay fullscreen para itinerario -->
     <div class="tour-overlay" id="tourOverlay" aria-hidden="true">
-      <div class="tour-modal" role="dialog" aria-modal="true" aria-labelledby="tourOverlayTitle">
-        <div class="tour-header">
-          <h4 id="tourOverlayTitle">Itinerario</h4>
-          <button class="tour-close" type="button" aria-label="Cerrar">✕</button>
-        </div>
-                <div class="tour-body">
-                    <div class="overlay-slides">
-                        <div class="overlay-controls">
-                            <button class="nav-btn" data-dir="prev" aria-label="Anterior">◀</button>
-                            <button class="nav-btn" data-dir="next" aria-label="Siguiente">▶</button>
-                        </div>
-                        <div class="slides-track" id="overlaySlidesTrack"></div>
+        <div class="tour-modal" role="dialog" aria-modal="true" aria-labelledby="tourOverlayTitle">
+            <div class="tour-header">
+                <h4 id="tourOverlayTitle">Itinerario</h4>
+                <button class="tour-close" type="button" aria-label="Cerrar">✕</button>
+            </div>
+            <div class="tour-body">
+                <div class="overlay-slides">
+                    <div class="overlay-controls">
+                        <button class="nav-btn" data-dir="prev" aria-label="Anterior">◀</button>
+                        <button class="nav-btn" data-dir="next" aria-label="Siguiente">▶</button>
                     </div>
+                    <div class="slides-track" id="overlaySlidesTrack"></div>
                 </div>
-      </div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>
