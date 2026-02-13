@@ -219,3 +219,80 @@ h1, h2, h3 {
         font-size: 1.8rem;
     }
 }
+
+/* --- OVERLAY ITINERARIO --- */
+.tour-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  background: rgba(0,0,0,0.35);
+}
+
+.tour-overlay.open { display: block; }
+
+.tour-modal {
+  position: relative;
+  width: 100%;
+  max-width: 1200px; /* quítalo si quieres 100% de ancho */
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+  border: 1px solid #eee;
+  overflow: hidden;
+}
+
+.tour-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+    border-bottom: none;
+}
+
+.tour-close {
+  border: none;
+  background: #f2f2f2;
+  color: #333;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.tour-close:hover { background: #e6e6e6; }
+
+.tour-body { padding: 16px; }
+
+/* --- Overlay slides --- */
+.overlay-slides { margin-top: 8px; }
+.overlay-controls { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 8px; }
+.nav-btn { border: none; background: #f2f2f2; color: #333; padding: 6px 10px; border-radius: 6px; cursor: pointer; }
+.nav-btn:hover { background: #e6e6e6; }
+
+.slides-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
+.slide { flex: 0 0 var(--slide-width, 320px); background: #fafafa; border: 1px solid #eee; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px var(--sombra); scroll-snap-align: start; cursor: pointer; }
+.slide.selected { border-color: var(--cafe); box-shadow: 0 6px 16px var(--sombra); }
+.slide-image { height: 140px; background-size: cover; background-position: center; }
+.slide-body { padding: 12px; }
+.slide-body .slide-btn { margin-top: 8px; background: var(--cafe); color: var(--blanco); border: none; padding: 8px 12px; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: background var(--transicion); }
+.slide-body .slide-btn:hover { background: var(--negro); }
+.slide-title { margin: 0 0 8px 0; font-size: 0.95rem; color: var(--negro); }
+.slide-desc { margin: 0 0 8px 0; font-size: 0.85rem; color: #555; }
+.slide-meta { display: flex; gap: 6px; flex-wrap: wrap; margin: 0 0 8px 0; }
+.chip { background: #f1f4f1; color: var(--verde); padding: 4px 8px; font-size: 0.75rem; border-radius: 6px; font-weight: 600; }
+
+.slides-track { user-select: none; -webkit-overflow-scrolling: touch; }
+/* Ocultar barra de scroll en todos los navegadores */
+.slides-track { -ms-overflow-style: none; scrollbar-width: none; }
+.slides-track::-webkit-scrollbar { display: none; width: 0; height: 0; }
+
+/* Mostrar 2 cards visibles en el carrusel */
+.overlay-slides .slides-track { --slide-width: calc((100% - 16px) / 2); }
+
+/* Visor de imagen de itinerario dentro del modal */
+.image-viewer { position: absolute; inset: 0; background: rgba(0,0,0,0.8); display: none; align-items: center; justify-content: center; }
+.image-viewer.open { display: flex; }
+.image-viewer img { max-width: 90%; max-height: 80vh; border-radius: 10px; box-shadow: 0 12px 28px rgba(0,0,0,0.4); }
+.image-viewer .image-close { position: absolute; top: 12px; right: 12px; border: none; background: #f2f2f2; color: #333; padding: 6px 10px; border-radius: 6px; cursor: pointer; }
+.image-viewer .image-close:hover { background: #e6e6e6; }
