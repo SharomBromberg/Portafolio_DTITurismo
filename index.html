@@ -8,6 +8,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway:wght@300;400;600&display=swap"
         rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -27,14 +28,16 @@
         <div class="catalog-grid">
 
             <article class="tour-card" data-key="cafe">
-                <div class="card-image"
-                    style="background-image: url('https://images.unsplash.com/photo-1518173946687-a4c8a9833d8e?auto=format&fit=crop&w=800&q=80');">
+                <div class="card-image" style="background-image: url('/assets/img/mapa_col_00.jpg')">
                     <span class="category-badge">Identidad Territorial</span>
                 </div>
                 <div class="tour-content">
-                    <h3>Ruta del Café: Origen y Tradición</h3>
+                    <h3>Ruta del Café: Origen y Tradición </h3>
                     <p>Inmersión profunda en fincas cafeteras de autor. Taller de barismo con caficultores
-                        locales y senderismo por cafetales sombreados.</p>
+                        locales y senderismo por cafetales sombreados.
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores officia harum quidem soluta
+                        magnam nemo dolorum sed amet in quas, molestiae facilis error, architecto, a dicta tenetur
+                        voluptatibus saepe consequuntur?</p>
                     <div class="highlights">
                         <ul>
                             <li>#Sostenibilidad</li>
@@ -57,7 +60,11 @@
                 <div class="tour-content">
                     <h3>Expedición Palmas de Cera</h3>
                     <p>Recorrido por el Valle de Cocora con enfoque científico. Fotografía de fauna y flora
-                        andina guiada por expertos en biodiversidad.</p>
+                        andina guiada por expertos en biodiversidad.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis ut aspernatur, vel unde
+                        numquam nihil labore. Delectus voluptatibus veniam facere beatae. Ipsam nam sint dolorem
+                        reiciendis quidem, repudiandae sequi rerum.
+                    </p>
                     <div class="highlights">
                         <ul>
                             <li>#Naturaleza</li>
@@ -80,7 +87,10 @@
                 <div class="tour-content">
                     <h3>Incentivo Sostenible: Eje Cafetero</h3>
                     <p>Eventos empresariales con impacto social neutro. Talleres de liderazgo en entornos
-                        naturales y logística técnica de alta gama.</p>
+                        naturales y logística técnica de alta gama.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus itaque beatae placeat eius!
+                        Animi maiores odit quam facere iure? Commodi consectetur corrupti at unde asperiores ipsa saepe
+                        nesciunt beatae mollitia!</p>
                     <div class="highlights">
                         <ul>
                             <li>#Empresarial</li>
@@ -118,17 +128,26 @@
                 <button class="tour-close" type="button" aria-label="Cerrar">✕</button>
             </div>
             <div class="tour-body">
-                <div class="overlay-slides">
-                    <div class="overlay-controls">
-                        <button class="nav-btn" data-dir="prev" aria-label="Anterior">◀</button>
-                        <button class="nav-btn" data-dir="next" aria-label="Siguiente">▶</button>
-                    </div>
-                    <div class="slides-track" id="overlaySlidesTrack"></div>
+                <div id="tourCarousel" class="carousel carousel-dark slide" data-bs-ride="false">
+
+                    <div class="carousel-inner" id="carouselInner"></div>
+                    <div class="carousel-indicators" id="carouselIndicators"></div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#tourCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#tourCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 

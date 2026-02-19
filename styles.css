@@ -1,4 +1,3 @@
-/* --- VARIABLES DE DISEÑO --- */
 :root {
     --amarillo: #F2B705;
     --verde: #8C9E5E;
@@ -11,8 +10,9 @@
     --transicion: 0.3s ease;
 }
 
-/* --- ESTILOS GENERALES --- */
-body, html {
+
+body,
+html {
     margin: 0;
     padding: 0;
     font-family: 'Raleway', sans-serif;
@@ -21,13 +21,15 @@ body, html {
     overflow-x: hidden;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
     margin: 5px 0;
 }
 
-/* --- CONTENEDOR PRINCIPAL --- */
+
 .page {
     width: 100vw;
     min-height: 100vh;
@@ -38,7 +40,7 @@ h1, h2, h3 {
     align-items: center;
 }
 
-/* --- CABECERA --- */
+
 .main-header {
     text-align: center;
     margin-bottom: 50px;
@@ -65,18 +67,19 @@ h1, h2, h3 {
     line-height: 1.6;
 }
 
-/* --- GRID DE TOURS --- */
 .catalog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    width: 100%;
-    max-width: 1200px;
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); */
+    display: flex;
+    gap: 2%;
+    width: 90%;
+    justify-content: space-between;
+
 }
 
-/* --- TARJETAS --- */
 .tour-card {
     background: var(--blanco);
+    width: 30%;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 25px var(--sombra);
@@ -110,7 +113,9 @@ h1, h2, h3 {
 
 .tour-content {
     padding: 25px;
-    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .tour-content h3 {
@@ -125,7 +130,7 @@ h1, h2, h3 {
     color: #444;
 }
 
-/* --- HIGHLIGHTS (#TAGS) --- */
+
 .highlights {
     margin-top: 15px;
     padding-top: 15px;
@@ -149,7 +154,7 @@ h1, h2, h3 {
     font-weight: 600;
 }
 
-/* --- FOOTER DE TARJETA --- */
+
 .footer-card {
     padding: 15px 25px;
     background: #fafafa;
@@ -180,9 +185,9 @@ h1, h2, h3 {
     background: var(--negro);
 }
 
-/* --- FOOTER GENERAL --- */
+
 .alliance-footer {
-    margin-top: 80px;
+    margin-top: 4rem;
     background: var(--verde-degradado);
     color: var(--blanco);
     padding: 60px 20px;
@@ -209,90 +214,278 @@ h1, h2, h3 {
     opacity: 0.8;
 }
 
-/* --- RESPONSIVIDAD --- */
-@media (max-width: 768px) {
-    .catalog-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .main-header h1 {
-        font-size: 1.8rem;
-    }
-}
 
-/* --- OVERLAY ITINERARIO --- */
+
+
+
 .tour-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  display: none;
-  background: rgba(0,0,0,0.35);
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
 }
 
-.tour-overlay.open { display: block; }
+.tour-overlay.open {
+    display: flex;
+}
 
 .tour-modal {
-  position: relative;
-  width: 100%;
-  max-width: 1200px; /* quítalo si quieres 100% de ancho */
-  margin: 40px auto;
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
-  border: 1px solid #eee;
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    min-width: 95%;
+    max-height: 90vh;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    animation: modalSlideUp 0.3s ease-out;
+    margin: auto;
+}
+
+@keyframes modalSlideUp {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .tour-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 16px;
-    border-bottom: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, var(--cafe), #a85840);
+    color: var(--blanco);
+    flex-shrink: 0;
+}
+
+.tour-header h4 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 .tour-close {
-  border: none;
-  background: #f2f2f2;
-  color: #333;
-  padding: 6px 10px;
-  border-radius: 6px;
-  cursor: pointer;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--blanco);
+    padding: 10px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: 700;
+    transition: all 0.2s ease;
 }
 
-.tour-close:hover { background: #e6e6e6; }
+.tour-close:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: scale(1.1);
+}
 
-.tour-body { padding: 16px; }
+.tour-body {
+    padding: 0;
+    flex: 1;
+    overflow: hidden;
+    background: #f8f9fa;
+}
 
-/* --- Overlay slides --- */
-.overlay-slides { margin-top: 8px; }
-.overlay-controls { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 8px; }
-.nav-btn { border: none; background: #f2f2f2; color: #333; padding: 6px 10px; border-radius: 6px; cursor: pointer; }
-.nav-btn:hover { background: #e6e6e6; }
 
-.slides-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
-.slide { flex: 0 0 var(--slide-width, 320px); background: #fafafa; border: 1px solid #eee; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px var(--sombra); scroll-snap-align: start; cursor: pointer; }
-.slide.selected { border-color: var(--cafe); box-shadow: 0 6px 16px var(--sombra); }
-.slide-image { height: 140px; background-size: cover; background-position: center; }
-.slide-body { padding: 12px; }
-.slide-body .slide-btn { margin-top: 8px; background: var(--cafe); color: var(--blanco); border: none; padding: 8px 12px; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: background var(--transicion); }
-.slide-body .slide-btn:hover { background: var(--negro); }
-.slide-title { margin: 0 0 8px 0; font-size: 0.95rem; color: var(--negro); }
-.slide-desc { margin: 0 0 8px 0; font-size: 0.85rem; color: #555; }
-.slide-meta { display: flex; gap: 6px; flex-wrap: wrap; margin: 0 0 8px 0; }
-.chip { background: #f1f4f1; color: var(--verde); padding: 4px 8px; font-size: 0.75rem; border-radius: 6px; font-weight: 600; }
+#tourCarousel {
+    height: 100%;
+}
 
-.slides-track { user-select: none; -webkit-overflow-scrolling: touch; }
-/* Ocultar barra de scroll en todos los navegadores */
-.slides-track { -ms-overflow-style: none; scrollbar-width: none; }
-.slides-track::-webkit-scrollbar { display: none; width: 0; height: 0; }
+.carousel-inner {
+    height: 100%;
 
-/* Mostrar 2 cards visibles en el carrusel */
-.overlay-slides .slides-track { --slide-width: calc((100% - 16px) / 2); }
+}
 
-/* Visor de imagen de itinerario dentro del modal */
-.image-viewer { position: absolute; inset: 0; background: rgba(0,0,0,0.8); display: none; align-items: center; justify-content: center; }
-.image-viewer.open { display: flex; }
-.image-viewer img { max-width: 90%; max-height: 80vh; border-radius: 10px; box-shadow: 0 12px 28px rgba(0,0,0,0.4); }
-.image-viewer .image-close { position: absolute; top: 12px; right: 12px; border: none; background: #f2f2f2; color: #333; padding: 6px 10px; border-radius: 6px; cursor: pointer; }
-.image-viewer .image-close:hover { background: #e6e6e6; }
+.carousel-item {
+    height: 35rem;
+}
+
+.carousel-item img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    left: 5%;
+    right: 5%;
+    margin-bottom: 1rem;
+}
+
+.carousel-caption h5 {
+    color: var(--amarillo);
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.carousel-caption p {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.carousel-caption .badges-container {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 60px;
+    background: rgba(140, 72, 48, 0.7);
+    border-radius: 10px;
+    margin: 10px;
+    height: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background: rgba(140, 72, 48, 0.9);
+}
+
+.carousel-indicators {
+    margin: 2.5rem 0 0.5rem 0;
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--cafe);
+    opacity: 0.5;
+}
+
+.carousel-indicators .active {
+    opacity: 1;
+    background-color: var(--amarillo);
+}
+
+
+
+@media (max-width: 639px) {
+    .catalog-grid {
+        flex-direction: column;
+        width: 100%;
+        gap: 1.5rem;
+    }
+
+    .tour-card {
+        width: 100%;
+    }
+
+    .main-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .tour-overlay {
+        padding: 10px;
+    }
+
+    .tour-modal {
+        max-width: 100vw;
+        max-height: 95vh;
+        border-radius: 16px;
+        margin: auto;
+    }
+
+    .tour-header {
+        padding: 16px 20px;
+    }
+
+    .tour-header h4 {
+        font-size: 1.1rem;
+    }
+
+    .carousel-caption {
+        left: 3%;
+        right: 3%;
+        margin-bottom: 1rem;
+        padding: 2rem;
+    }
+
+    .carousel-caption h5 {
+        font-size: 1.2rem !important;
+    }
+
+    .carousel-caption p {
+        font-size: 0.95rem !important;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+
+@media (min-width: 640px) and (max-width: 1023px) {
+    .tour-overlay {
+        padding: 20px;
+    }
+
+    .tour-modal {
+        max-width: 90vw;
+        max-height: 90vh;
+        margin: auto;
+    }
+
+    .catalog-grid {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+        gap: 2.5rem;
+    }
+
+    .tour-card {
+        height: 45rem;
+        width: 90%;
+    }
+
+    .card-image {
+        height: 50%;
+    }
+
+    .tour-content {
+        height: 40%;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .tour-overlay {
+        padding: 20px;
+    }
+
+    .tour-modal {
+
+        max-height: 90vh;
+        margin: auto;
+    }
+}
