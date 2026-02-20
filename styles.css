@@ -525,33 +525,143 @@ h3 {
     }
 
     .carousel-item {
-        height: 25rem;
-
+        height: 80vh;
     }
 
     .carousel-caption {
+
+        bottom: auto;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+
+
+        width: 70%;
+        max-width: 500px;
+        padding: 15px;
+        margin: 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        top: 0;
-        bottom: 0;
-        left: 15%;
-        right: 15%;
-        padding: 20px;
-        text-align: center;
-        height: 35%;
-        margin: auto 0;
+        background: rgba(0, 0, 0, 0.75);
 
     }
 
     .carousel-caption h5 {
-        font-size: 1rem;
+        font-size: 1.1rem;
+        margin-bottom: 5px;
     }
 
     .carousel-caption p {
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .carousel-indicators {
+        margin: 1.5rem;
+    }
+
+    .tour-overlay.open {
+        display: flex;
+        overflow: hidden;
+    }
+
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 40px;
+        height: 40px;
+    }
+
+    .catalog-grid {
+        flex-direction: column;
+
+        align-items: center;
+        width: 100%;
+    }
+
+    .tour-card {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: 20rem;
+        width: 100%;
+
+
+    }
+
+    .highlights {
+
+        height: 2rem;
+        padding-top: 0.5rem;
+        border-top: 1px solid #eee;
+    }
+
+    .highlights ul {
+
+        margin: 0 auto;
+        justify-content: space-around;
+        width: 75%;
+    }
+
+    .card-image {
+        width: 35%;
+
+        object-fit: cover;
+        height: 80%;
+    }
+
+
+    .tour-content {
+        width: 65%;
+        height: 80%;
+        padding: 15px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .tour-content h3 {
+        font-size: 1rem;
+
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    .tour-content p {
         font-size: 0.8rem;
-        margin-bottom: 5px;
+        height: 90%;
+        place-content: center;
+        line-height: 1.3;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin: auto;
+    }
+
+
+    .footer-card {
+        width: 100%;
+        height: 20%;
+
+        margin-top: auto;
+
+        padding: 10px 25px;
+        border-top: 1px solid #eee;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background: #fafafa;
     }
 }
 
@@ -595,20 +705,9 @@ h3 {
         Adjust height */
     }
 
-    .carousel-caption {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        top: 0;
-        bottom: 0;
-        left: 15%;
-        right: 15%;
-        padding: 20px;
-        text-align: center;
-        height: 35%;
-        margin: auto 0;
+    /* .carousel-caption {
 
-    }
+
+    } */
 
 }
