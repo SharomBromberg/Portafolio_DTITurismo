@@ -428,11 +428,11 @@ h3 {
     }
 
     .carousel-caption h5 {
-        font-size: 1.2rem !important;
+        font-size: 1.2rem;
     }
 
     .carousel-caption p {
-        font-size: 0.95rem !important;
+        font-size: 0.95rem;
     }
 
     .carousel-control-prev,
@@ -488,4 +488,127 @@ h3 {
         max-height: 90vh;
         margin: auto;
     }
+}
+
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .tour-modal {
+        max-width: 95vw;
+        flex-direction: column;
+
+    }
+
+    .tour-header {
+        padding: 10px 20px;
+
+        background: var(--cafe);
+        flex-direction: row;
+
+        align-items: center;
+    }
+
+    .tour-header h4 {
+        font-size: 1rem;
+
+        margin: 0;
+    }
+
+    .tour-close {
+        font-size: 1rem;
+
+        padding: 5px 10px;
+    }
+
+    .tour-body {
+        flex: 1;
+        height: auto;
+    }
+
+    .carousel-item {
+        height: 25rem;
+
+    }
+
+    .carousel-caption {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        bottom: 0;
+        left: 15%;
+        right: 15%;
+        padding: 20px;
+        text-align: center;
+        height: 35%;
+        margin: auto 0;
+
+    }
+
+    .carousel-caption h5 {
+        font-size: 1rem;
+    }
+
+    .carousel-caption p {
+        font-size: 0.8rem;
+        margin-bottom: 5px;
+    }
+}
+
+
+@media (min-width: 901px) and (max-width: 1200px) and (orientation: landscape) {
+    .tour-modal {
+        max-width: 95vw;
+        max-height: 90vh;
+        flex-direction: column;
+
+    }
+
+    .tour-header {
+        padding: 15px 24px;
+
+        background: var(--cafe);
+        flex-direction: row;
+
+        align-items: center;
+    }
+
+    .tour-header h4 {
+        font-size: 1.2rem;
+
+        margin: 0;
+    }
+
+    .tour-close {
+        font-size: 1.2rem;
+
+        padding: 8px 12px;
+    }
+
+    .tour-body {
+        flex: 1;
+        height: auto;
+    }
+
+    .carousel-item {
+        /* height: 30rem;
+        Adjust height */
+    }
+
+    .carousel-caption {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        bottom: 0;
+        left: 15%;
+        right: 15%;
+        padding: 20px;
+        text-align: center;
+        height: 35%;
+        margin: auto 0;
+
+    }
+
 }

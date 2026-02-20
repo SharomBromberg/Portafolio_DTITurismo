@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       carouselItem.innerHTML = `
         <img src="${slide.img}" class="d-block w-100" alt="${slide.title}">
-        <div class="carousel-caption d-md-block">
+        <div class="carousel-caption d-block">
           <h5>${slide.title}</h5>
           <p>${slide.desc}</p>
           <div class="badges-container">
