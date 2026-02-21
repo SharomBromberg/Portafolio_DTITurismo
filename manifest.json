@@ -1,0 +1,30 @@
+{
+  "name": "Ruta del Café",
+  "short_name": "CaféApp",
+  "description": "Inmersión profunda en fincas cafeteras",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#8C4830",
+  "icons": [
+    {
+      "src": "assets/icon-192.png", 
+      "sizes": "612x612",
+      "type": "image/png",
+      "purpose": "any maskable" 
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "612x612",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/screenshot.png",
+      "sizes": "445x794",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ]
+}
