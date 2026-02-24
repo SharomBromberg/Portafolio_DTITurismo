@@ -1,6 +1,6 @@
 {
   "name": "DTI Travel - Tourism App",
-  "short_name": "DTIApp",
+  "short_name": "DTITravel",
   "description": "Inmersión profunda en fincas cafeteras",
   "start_url": "/index.html",
   "display": "standalone",
