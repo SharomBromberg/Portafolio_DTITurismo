@@ -1,6 +1,6 @@
 {
-  "name": "Ruta del Café",
-  "short_name": "CaféApp",
+  "name": "DTI Travel - Tourism App",
+  "short_name": "DTIApp",
   "description": "Inmersión profunda en fincas cafeteras",
   "start_url": "/index.html",
   "display": "standalone",
