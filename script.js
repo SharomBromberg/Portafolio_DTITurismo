@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         title: "En construcción...",
         img: "assets/img/materialVisual/Cafetero/mapacafeteroCol.png",
-        desc: "Estamos preparando este proyecto con mucho cariño por nuestras regiones cafeteras. Muy pronto compartiremos todos los detalles. Si quieres hacer parte de este proyecto no dudes en contactarnos.",
+        desc: "Estamos preparando este proyecto con mucho cariño por nuestras regiones cafeteras. Muy pronto compartiremos todos los detalles. <b> Si quieres hacer parte de este proyecto no dudes en contactarnos.</b> ",
       },
     ],
   };
