@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       {
         title: "San Félix",
-        img: "assets/img/materialVisual/caldas/sanfelix.png",
+        img: "assets/img/materialVisual/caldas/sanFelix.png",
         desc: "El encuentro con el Valle de la Samaria, un refugio de paz donde las palmas de cera rozan las nubes. Es el lugar perfecto para el silencio y la contemplación de la biodiversidad en su estado más puro.",
       },
     ],
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         title: "En construcción...",
         img: "assets/img/materialVisual/Cafetero/mapacafeteroCol.png",
-        desc: "Estamos preparando este proyecto con mucho cariño por nuestras regiones cafeteras. Muy pronto compartiremos todos los detalles. <b> Si quieres hacer parte de este proyecto no dudes en contactarnos.</b> ",
+        desc: "Estamos preparando este proyecto con mucho cariño por nuestras regiones cafeteras. Muy pronto compartiremos todos los detalles. <br> <b> Si quieres hacer parte de este proyecto no dudes en contactarnos.</b> ",
       },
     ],
   };
