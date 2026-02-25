@@ -270,17 +270,44 @@ h3 {
     justify-content: center;
 }
 
-.contact-info p {
+.contact-pill {
     margin: 0;
     padding: 12px 18px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     flex-wrap: wrap;
     justify-content: center;
     background: rgba(255, 255, 255, 0.12);
     border-radius: 999px;
     border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.contact-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+.contact-item svg {
+    flex-shrink: 0;
+}
+
+.contact-item a {
+    color: var(--amarillo);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: var(--blanco);
+    text-decoration: underline;
+}
+
+.contact-sep {
+    opacity: 0.6;
 }
 
 .footer-bottom {
@@ -629,8 +656,17 @@ h3 {
         justify-content: center;
     }
 
-    .contact-info p {
+    .contact-pill {
         border-radius: 18px;
+        padding: 12px 16px;
+    }
+
+    .contact-item {
+        white-space: normal;
+    }
+
+    .contact-sep {
+        display: none;
     }
 }
 
