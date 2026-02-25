@@ -320,6 +320,13 @@ h3 {
     opacity: 0.85;
 }
 
+.footer-rnt {
+    margin: 6px 0 0;
+    font-size: 0.72rem;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
 .developer-section {
     margin-top: 0;
     padding-top: 1.5rem;
@@ -366,12 +373,12 @@ h3 {
     gap: 6px;
 }
 
-.tecsisman-contact p {
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
+.tecsisman-contact .contact-pill {
+    background: transparent;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    justify-content: flex-start;
 }
 
 .tecsisman-contact a {
@@ -652,7 +659,7 @@ h3 {
         justify-items: center;
     }
 
-    .tecsisman-contact p {
+    .tecsisman-contact .contact-pill {
         justify-content: center;
     }
 
@@ -687,7 +694,7 @@ h3 {
         justify-items: center;
     }
 
-    .tecsisman-contact p {
+    .tecsisman-contact .contact-pill {
         justify-content: center;
     }
 
@@ -726,6 +733,17 @@ h3 {
 
 
 @media (min-width: 1024px) {
+    .catalog-grid {
+        width: 96%;
+        gap: 2.5%;
+
+    }
+
+    .tour-card {
+        width: auto;
+        flex: 1 1 0;
+    }
+
     .tour-overlay {
         padding: 20px;
     }
@@ -735,6 +753,59 @@ h3 {
         max-width: 50%;
         max-height: 90vh;
         margin: auto;
+    }
+
+    .card-image {
+        height: 250px;
+    }
+
+    .tour-content {
+        flex: 1;
+    }
+
+    .tour-content h3 {
+        line-height: 1.2;
+        margin: 0;
+        min-height: 3.6em;
+    }
+
+    .tour-content p {
+        margin: 0;
+        line-height: 1.5;
+        min-height: 9em;
+    }
+
+    .highlights {
+        margin-top: auto;
+        min-height: 60px;
+    }
+
+    .highlights ul {
+        min-height: 36px;
+    }
+
+    .footer-card {
+        min-height: 64px;
+        height: auto;
+    }
+
+    .developer-section {
+        grid-template-columns: auto auto;
+        justify-content: center;
+        column-gap: 32px;
+    }
+
+    .tecsisman-contact {
+        justify-self: center;
+        text-align: center;
+    }
+
+    .tecsisman-contact .contact-pill {
+        max-width: none;
+        column-gap: 14px;
+        row-gap: 0;
+        flex-wrap: nowrap;
+        justify-content: center;
     }
 }
 

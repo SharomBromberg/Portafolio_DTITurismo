@@ -7,6 +7,59 @@ document.addEventListener("DOMContentLoaded", () => {
   const carouselInner = document.getElementById("carouselInner");
   const carouselIndicators = document.getElementById("carouselIndicators");
 
+  const equalizeCardSections = () => {
+    const desktop = window.matchMedia("(min-width: 1024px)").matches;
+    const titleEls = document.querySelectorAll(".tour-content h3");
+    const bodyEls = document.querySelectorAll(".tour-content p");
+    const highlightEls = document.querySelectorAll(".highlights");
+    const footerEls = document.querySelectorAll(".footer-card");
+
+    const resetHeights = (els) => {
+      els.forEach((el) => {
+        el.style.minHeight = "";
+        el.style.height = "";
+      });
+    };
+
+    resetHeights(titleEls);
+    resetHeights(bodyEls);
+    resetHeights(highlightEls);
+    resetHeights(footerEls);
+
+    if (!desktop) return;
+
+    const setMaxMinHeight = (els) => {
+      if (!els.length) return;
+      let max = 0;
+      els.forEach((el) => {
+        max = Math.max(max, el.offsetHeight);
+      });
+      els.forEach((el) => {
+        el.style.minHeight = `${max}px`;
+      });
+    };
+
+    setMaxMinHeight(titleEls);
+    setMaxMinHeight(bodyEls);
+    setMaxMinHeight(highlightEls);
+    setMaxMinHeight(footerEls);
+  };
+
+  const scheduleEqualize = () => {
+    window.requestAnimationFrame(equalizeCardSections);
+  };
+
+  scheduleEqualize();
+  window.addEventListener("load", scheduleEqualize);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(scheduleEqualize);
+  }
+
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(scheduleEqualize, 150);
+  });
   if (!overlay) return;
 
   // Slides por sección
@@ -16,83 +69,50 @@ document.addEventListener("DOMContentLoaded", () => {
         title: "Sendero La Chorrera",
         img: "assets/img/materialVisual/lachorrera.png",
         desc: "Visita a la segunda cascada escalonada más alta de Colombia, un símbolo natural de fuerza y movimiento que invita a la contemplación profunda.",
-        meta: ["Duración: 6h", "Café", "Cupo: 12"],
       },
       {
         title: "Sendero El Chiflón",
         img: "assets/img/materialVisual/elchiflon.png",
         desc: "Un recorrido para sentir de cerca la energía del agua y su mensaje de transformación, ideal para soltar y renovarse.",
-        meta: ["Duración: 4h", "Intro", "Cupo: 10"],
       },
       {
         title: "Sendero Las Moyas",
         img: "assets/img/materialVisual/lasmoyas.png",
         desc: "Una ruta que atraviesa las reservas Horizontes y Rosales, donde el bosque se vuelve íntimo para ayudarnos a desconectar del ruido y reconectar con nuestra esencia.",
-        meta: ["Duración: 5h", "Naturaleza", "Cupo: 15"],
       },
       {
         title: "Sendero La Vieja",
         img: "assets/img/materialVisual/senderolavieja.png",
         desc: "Un camino tradicional de los cerros orientales que invita a la reflexión consciente en medio de la biodiversidad andina.",
-        meta: ["Duración: 3h", "Cata", "Cupo: 8"],
       },
       {
         title: "Sendero Santa Ana - La Aguadora",
         img: "assets/img/materialVisual/laaguadora.png",
         desc: "Una experiencia de reconexión interior a través de la sabiduría del bosque y el silencio de la montaña.",
-        meta: ["Duración: 3h", "Cata", "Cupo: 8"],
       },
     ],
-    palmas: [
+    caldas: [
       {
-        title: "Cocora Científico",
-        img: "https://images.unsplash.com/photo-1543241017-4d8c3fd92c40?auto=format&fit=crop&w=800&q=80",
-        desc: "Interpretación ecológica con guía especializado",
-        meta: ["Duración: 6h", "Medio", "Cupo: 14"],
+        title: "Salamina (Pueblo Patrimonio)",
+        img: "assets/img/materialVisual/caldas/salamina.png",
+        desc: "El punto de partida donde la madera tallada y los balcones floridos narran historias de la colonización. Una inmersión en la estética y el ritmo de un pueblo que se detuvo en el tiempo para conservar su elegancia.",
       },
       {
-        title: "Fotografía Andina",
-        img: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80",
-        desc: "Salida de foto con tips técnicos profesionales",
-        meta: ["Duración: 5h", "Foto", "Cupo: 10"],
+        title: "Marulanda",
+        img: "assets/img/materialVisual/caldas/marulanda.png",
+        desc: "Sumérgete en el silencio de los campos de altura para conectar con el ritmo pausado de la tejeduría. Es un encuentro con la esencia del campo caldense, donde cada ruana narra una historia de resistencia, montaña y el calor de un territorio que abraza al viajero",
       },
       {
-        title: "Biodiversidad",
-        img: "https://images.unsplash.com/photo-1482192505345-5655af888f90?auto=format&fit=crop&w=800&q=80",
-        desc: "Caminata interpretativa y avistamiento de fauna",
-        meta: ["Duración: 4h", "Ecosistemas", "Cupo: 16"],
-      },
-      {
-        title: "Valle de Palmas",
-        img: "https://images.unsplash.com/photo-1477764868470-7f4f0e7c7010?auto=format&fit=crop&w=800&q=80",
-        desc: "Ruta icónica y miradores panorámicos",
-        meta: ["Duración: 7h", "Paisaje", "Cupo: 12"],
+        title: "San Félix",
+        img: "assets/img/materialVisual/caldas/sanfelix.png",
+        desc: "El encuentro con el Valle de la Samaria, un refugio de paz donde las palmas de cera rozan las nubes. Es el lugar perfecto para el silencio y la contemplación de la biodiversidad en su estado más puro.",
       },
     ],
-    mice: [
+    cafe: [
       {
-        title: "Liderazgo en Naturaleza",
-        img: "https://images.unsplash.com/photo-1520962918403-54e1100b2bd2?auto=format&fit=crop&w=800&q=80",
-        desc: "Workshop outdoor con dinámicas de equipo",
-        meta: ["Duración: 4h", "Team", "Cupo: 20"],
-      },
-      {
-        title: "Logística Técnica",
-        img: "https://images.unsplash.com/photo-1529101091764-c3526daf38fe?auto=format&fit=crop&w=800&q=80",
-        desc: "Montaje y operación profesional de eventos",
-        meta: ["Duración: 6h", "Evento", "Cupo: 30"],
-      },
-      {
-        title: "Impacto Social Neutro",
-        img: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80",
-        desc: "Buenas prácticas y medición de impacto",
-        meta: ["Duración: 3h", "Sostenible", "Cupo: 25"],
-      },
-      {
-        title: "Cierre Ejecutivo",
-        img: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80",
-        desc: "Presentación de resultados y networking",
-        meta: ["Duración: 2h", "Corporativo", "Cupo: 40"],
+        title: "En construcción...",
+        img: "assets/img/materialVisual/Cafetero/mapacafeteroCol.png",
+        desc: "Estamos preparando este proyecto con mucho cariño por nuestras regiones cafeteras. Muy pronto compartiremos todos los detalles. Si quieres hacer parte de este proyecto no dudes en contactarnos.",
       },
     ],
   };
