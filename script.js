@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     : null;
   const carouselInner = document.getElementById("carouselInner");
   const carouselIndicators = document.getElementById("carouselIndicators");
+  const carouselElement = document.getElementById("tourCarousel");
 
   const equalizeCardSections = () => {
     const desktop = window.matchMedia("(min-width: 1024px)").matches;
@@ -62,59 +63,159 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   if (!overlay) return;
 
-  // Slides por sección
+  // Slides por sección. Para video usa: { title, video: "assets/videos/archivo.mp4", poster: "assets/img/portada.png", desc }
   const overlaySlides = {
     transformacion: [
       {
-        title: "Sendero La Chorrera",
-        img: "assets/img/materialVisual/lachorrera.png",
-        desc: "Visita a la segunda cascada escalonada más alta de Colombia, un símbolo natural de fuerza y movimiento que invita a la contemplación profunda.",
+        title: "Immersión Norcasia",
+        type: "image",
+        src: "assets/img/materialVisual/caldas/Norcasia.jpg",
+        poster: "assets/img/materialVisual/caldas/Norcasia.jpg",
+        desc: "¿Listo para desconectarte y dejar una huella positiva? Te invitamos a vivir 3 días de Turismo Aventura, Naturaleza y Regeneraciónen Norcasia, Caldas, el paraíso hídrico de nuestra región.  A través de un viaje pausado y consciente, navegaremos el Embalse Amaní , flotaremos haciendo bodyrafting por el Río La Miel y nos recargaremos en las cascadas El Cielo y La Clara. Disfrutaremos de la gastronomía local y viviremos una experiencia única de conexión con la comunidad junto a la Asociación Avocado Queens."
       },
       {
-        title: "Sendero El Chiflón",
-        img: "assets/img/materialVisual/elchiflon.png",
-        desc: "Un recorrido para sentir de cerca la energía del agua y su mensaje de transformación, ideal para soltar y renovarse.",
+        title: "Nevado del Ruiz",
+        type: "image",
+        src: "assets/img/materialVisual/caldas/NevadodelRuiz.jpg",
+        poster: "assets/img/materialVisual/caldas/NevadodelRuiz.jpg",
+        desc: "¿Listo para tocar el cielo a 4.450 metros y terminar el día en aguas termales? DTI Travel te invita a vivir la travesía de alta montaña más completa de la región en un solo día.  Déjate sorprender por el espejo glaciar de Laguna Negra, conquista las 5 estaciones del PNN Los Nevados hasta el místico Valle de las Tumbas, y deléitate con la gastronomía de fuego y dulces tradicionales en Murillo (Tolima). El broche de oro de la aventura será un descenso exclusivo hacia el confort y la relajación total en las piscinas mineromedicinales de Termales del Otoño. El premio perfecto que tu cuerpo merece.",
       },
       {
-        title: "Sendero Las Moyas",
-        img: "assets/img/materialVisual/lasmoyas.png",
-        desc: "Una ruta que atraviesa las reservas Horizontes y Rosales, donde el bosque se vuelve íntimo para ayudarnos a desconectar del ruido y reconectar con nuestra esencia.",
+        title: "Immersión Cafetera",
+        type: "image",
+        src: "assets/img/materialVisual/Cafetero/CafeHoney.png",
+        poster: "assets/img/materialVisual/Cafetero/CafeHoney.png",
+        desc: "Una travesía hacia la cima de la introspección, donde el silencio de las alturas y la majestuosidad del paisaje se convierten en un espejo para la transformación personal.",
       },
       {
-        title: "Sendero La Vieja",
-        img: "assets/img/materialVisual/senderolavieja.png",
+        title: "Parque de la Fruta",
+        type: "image",
+        src: "assets/img/materialVisual/caldas/pdelafruta.jpeg",
+        poster: "assets/img/materialVisual/caldas/pdelafruta.jpeg",
         desc: "Un camino tradicional de los cerros orientales que invita a la reflexión consciente en medio de la biodiversidad andina.",
-      },
-      {
-        title: "Sendero Santa Ana - La Aguadora",
-        img: "assets/img/materialVisual/laaguadora.png",
-        desc: "Una experiencia de reconexión interior a través de la sabiduría del bosque y el silencio de la montaña.",
       },
     ],
     caldas: [
       {
         title: "Salamina (Pueblo Patrimonio)",
-        img: "assets/img/materialVisual/caldas/salamina.png",
+        type: "image",
+        src: "assets/img/materialVisual/caldas/salamina.png",
         desc: "El punto de partida donde la madera tallada y los balcones floridos narran historias de la colonización. Una inmersión en la estética y el ritmo de un pueblo que se detuvo en el tiempo para conservar su elegancia.",
       },
       {
         title: "Marulanda",
-        img: "assets/img/materialVisual/caldas/marulanda.png",
+        type: "image",
+        src: "assets/img/materialVisual/caldas/marulanda.png",
         desc: "Sumérgete en el silencio de los campos de altura para conectar con el ritmo pausado de la tejeduría. Es un encuentro con la esencia del campo caldense, donde cada ruana narra una historia de resistencia, montaña y el calor de un territorio que abraza al viajero",
       },
       {
         title: "San Félix",
-        img: "assets/img/materialVisual/caldas/sanFelix.png",
+        type: "image",
+        src: "assets/img/materialVisual/caldas/sanFelix.png",
         desc: "El encuentro con el Valle de la Samaria, un refugio de paz donde las palmas de cera rozan las nubes. Es el lugar perfecto para el silencio y la contemplación de la biodiversidad en su estado más puro.",
       },
     ],
     cafe: [
       {
         title: "En construcción...",
-        img: "assets/img/materialVisual/Cafetero/mapacafeteroCol.png",
+        type: "image",
+        src: "assets/img/materialVisual/Cafetero/mapacafeteroCol.png",
         desc: "Estamos preparando este proyecto con mucho cariño por nuestras regiones cafeteras. Muy pronto compartiremos todos los detalles. <br> <b> Si quieres hacer parte de este proyecto no dudes en contactarnos.</b> ",
       },
     ],
+  };
+
+  const videoExtensions = /\.(mp4|m4v|mov|ogg|ogv|webm)$/i;
+
+  const escapeHtml = (value = "") =>
+    String(value).replace(
+      /[&<>"']/g,
+      (char) =>
+      ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;",
+      }[char])
+    );
+
+  const getSlideMediaType = (slide) => {
+    if (slide.type) return String(slide.type).toLowerCase();
+    if (slide.video) return "video";
+
+    const source = slide.src || slide.img || "";
+    return videoExtensions.test(source) ? "video" : "image";
+  };
+
+  const getSlideSource = (slide) => slide.src || slide.video || slide.img || "";
+
+  const renderSlideMedia = (slide) => {
+    const source = getSlideSource(slide);
+    const safeSource = escapeHtml(source);
+    const safeTitle = escapeHtml(slide.title || "Contenido del itinerario");
+
+    if (getSlideMediaType(slide) === "video") {
+      const posterSource = slide.poster || slide.img;
+      const poster = posterSource
+        ? ` poster="${escapeHtml(posterSource)}"`
+        : "";
+      const mimeType = slide.mimeType
+        ? ` type="${escapeHtml(slide.mimeType)}"`
+        : "";
+
+      return `
+        <video class="d-block w-100 carousel-media" autoplay muted playsinline preload="metadata" aria-label="${safeTitle}"${poster}>
+          <source src="${safeSource}"${mimeType}>
+          Tu navegador no puede reproducir este video.
+        </video>
+      `;
+    }
+
+    return `<img src="${safeSource}" class="d-block w-100 carousel-media" alt="${safeTitle}">`;
+  };
+
+  const pauseCarouselVideos = () => {
+    carouselInner?.querySelectorAll("video").forEach((video) => {
+      video.pause();
+    });
+  };
+
+  const prepareCarouselVideos = () => {
+    carouselInner?.querySelectorAll("video").forEach((video) => {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.volume = 0;
+      video.addEventListener("volumechange", () => {
+        if (video.muted && video.volume === 0) return;
+
+        video.muted = true;
+        video.volume = 0;
+      });
+    });
+  };
+
+  const playActiveCarouselVideo = () => {
+    const activeVideo = carouselInner?.querySelector(
+      ".carousel-item.active video"
+    );
+
+    if (!activeVideo) return;
+
+    activeVideo.muted = true;
+    activeVideo.volume = 0;
+    activeVideo.play().catch(() => {
+      // Algunos navegadores bloquean el autoplay hasta la primera interacción.
+    });
+  };
+
+  const toggleVideoPlayback = (video) => {
+    if (video.paused) {
+      video.play().catch(() => { });
+      return;
+    }
+
+    video.pause();
   };
 
   function renderBootstrapCarousel(slides) {
@@ -141,9 +242,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const carouselItem = document.createElement("div");
       carouselItem.className =
         index === 0 ? "carousel-item active" : "carousel-item";
+      if (getSlideMediaType(slide) === "video") {
+        carouselItem.classList.add("has-video");
+      }
 
       carouselItem.innerHTML = `
-        <img src="${slide.img}" class="d-block w-100" alt="${slide.title}">
+        ${renderSlideMedia(slide)}
         <div class="carousel-caption d-block">
           <h5>${slide.title}</h5>
           <p>${slide.desc}</p>
@@ -160,7 +264,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
       carouselInner.appendChild(carouselItem);
     });
+
+    prepareCarouselVideos();
   }
+
+  carouselElement?.addEventListener("slide.bs.carousel", pauseCarouselVideos);
+  carouselElement?.addEventListener("slid.bs.carousel", playActiveCarouselVideo);
+
+  carouselInner?.addEventListener("click", (e) => {
+    const video = e.target.closest("video");
+    if (!video) return;
+
+    e.preventDefault();
+    toggleVideoPlayback(video);
+  });
 
   // Abrir overlay al pulsar "VER PLANES"
   document.querySelectorAll(".tour-card .btn-tour").forEach((btn) => {
@@ -181,7 +298,6 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.style.overflow = "hidden";
 
       // Destruir instancia previa del carrusel si existe
-      const carouselElement = document.getElementById("tourCarousel");
       if (carouselElement) {
         const existingCarousel =
           bootstrap.Carousel.getInstance(carouselElement);
@@ -201,6 +317,7 @@ document.addEventListener("DOMContentLoaded", () => {
             wrap: true,
             ride: false,
           });
+          playActiveCarouselVideo();
         }
       }, 100);
     });
@@ -209,7 +326,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Cerrar overlay
   closeBtn?.addEventListener("click", () => {
     // Destruir instancia del carrusel antes de cerrar
-    const carouselElement = document.getElementById("tourCarousel");
+    pauseCarouselVideos();
     if (carouselElement) {
       const existingCarousel = bootstrap.Carousel.getInstance(carouselElement);
       if (existingCarousel) {

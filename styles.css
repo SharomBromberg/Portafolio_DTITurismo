@@ -491,9 +491,19 @@ h3 {
     height: 35rem;
 }
 
-.carousel-item img {
+.carousel-media,
+.carousel-item img,
+.carousel-item video {
     height: 100%;
     object-fit: cover;
+}
+
+.carousel-item video.carousel-media {
+    background: #000;
+}
+
+.carousel-item.has-video .carousel-caption {
+    margin-bottom: 4.5rem;
 }
 
 .carousel-caption {
